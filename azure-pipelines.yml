@@ -16,7 +16,7 @@ steps:
     inputs:
       command: 'restore'
       projects: '**/*.csproj'
-      
+
   - task: DotNetCoreCLI@2
     displayName: 'Build the project - $(buildConfiguration)'
     inputs:
@@ -39,6 +39,6 @@ steps:
     displayName: 'Publish NuGet package'
     inputs:
       command: push
-      feedPublish: '$(System.TeamProject)/Tailspin.SpaceGame.Web.Models'
+      feedPublish: '$(System.DefaultWorkingDirectory)/Tailspin.SpaceGame.Web.Models'
       allowPackageConflicts: true
     condition: succeeded()
